@@ -3,12 +3,14 @@ const inputNode = document.querySelector(".js-input");
 const btnNode = document.querySelector(".js-btn");
 let todos = [];
 let done = [];
+let counter = 1;
 
 function addToDo (text) {
     const ToDo = {
         text,
         done: false,
-        id: `${Math.random()}`
+        id: `${Math.random()}`,
+        count: counter++
     };
     todos.push(ToDo);
 }
@@ -30,6 +32,7 @@ function render() {
         if (todo.done) {
             html += `
             <div>
+                ${todo.count})
                 ${todo.text.strike()} 
             </div>
         `;
@@ -37,8 +40,9 @@ function render() {
         } else {
         html += `
             <div>
+                ${todo.count})
                 ${todo.text} 
-                <button data-id=${todo.id}>I Did It!</button>
+                <button data-id=${todo.id}>✘</button>
             </div>
         `;
         }
@@ -56,18 +60,17 @@ function render() {
     todosNode.innerHTML = html;
 }
 
-btnNode.addEventListener('click', () => { 
+btnNode.addEventListener('click' , () => { 
     const text = inputNode.value;
     addToDo(text);
     render();
+    inputNode.value = "";
 });
-render();
 
 todosNode.addEventListener('click', (event) => { 
     if (event.target.tagName !== 'BUTTON') {
         return;
     }
-
     const id = event.target.dataset.id;
     deleteToDo(id);
     
