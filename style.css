@@ -7,19 +7,14 @@ body {
     padding: 0;
     margin: 0;
     background-image:url("images/background.png");
-    /* background:  linear-gradient(to right, #00AAFF, #00FF6C);\ */
   }
 
   .main-box {
     font-size: 1.3rem;
     display: grid;
     justify-content: center;
-    /* align-content: center; */
     min-height: 7vh;
-    /* max-width: 500vw; */
     grid-template-columns: repeat(1, 400px) repeat(1, auto);
-    /* grid-template-rows: minmax(20px, auto) repeat(2, 200px); */
-    /* background-color: rgba(255, 255, 255, .75); */
   }
   
   .main-box > button {
@@ -63,6 +58,5 @@ body {
     display: grid;
     background-color: rgba(255, 248, 236, 0.764);
     border-radius: 10px;
-    /* max-width: 50%;   */
     font-size: 1.3rem;
   }
